@@ -9,10 +9,10 @@ function calculateProfit() {
 
 function plotProfits() {
     var buy = parseFloat(document.getElementById('buy').value);
-    var alv = parseFloat(document.getElementById('tax').value);
+    var alv = parseFloat(document.getElementById('alv').value);
     var other_tax = parseFloat(document.getElementById('tax').value)	
-    var sell_tax_free_values = Array.from({length: buy}, (_, i) => buy + i);
-    var profit_values = sell_tax_free_values.map(sell_tax_free => sell_tax_free/(1 + 0.01*alv + 0.01*other_tax) - buy);
+    var sell_tax_free_values = Array.from({length: buy*400}, (_, i) => (1 + 0.01*alv + 0.01*other_tax)*buy + 0.01*i);
+    var profit_values = sell_tax_free_values.map(sell_tax_free => (sell_tax_free/(1 + 0.01*alv + 0.01*other_tax) - buy).toFixed(2));
 
 
     var trace1 = {
