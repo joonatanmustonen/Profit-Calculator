@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .column {
+            float: left;
+            width: 33.33%;
+            padding: 5px;
+        }
+        /* Clear floats after the columns */
+        .row::after {
+            content: "";
+            clear: both;
+            display: table;
+        }
+    </style>
+    <title>Calculate Profit</title>
+</head>
+<body>
+
+<h2>Calculate Profit</h2>
+
+<div class="row">
+  <div class="column">
+    <label for="sell_tax_free">Sell Tax Free:</label><br>
+    <input type="number" id="sell_tax_free" name="sell_tax_free">
+  </div>
+  <div class="column">
+    <label for="buy">Buy:</label><br>
+    <input type="number" id="buy" name="buy">
+  </div>
+  <div class="column">
+    <label for="tax">ALV:</label><br>
+    <input type="number" id="tax" name="tax">
+  </div>
+</div>
+
+<button onclick="calculateProfit()">Calculate Profit</button>
+<button onclick="plotProfits()">Plot Profits</button>
+<p id="result"></p>
+<div id="plot"></div>
+
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+<script src="calculate.js"></script>
+
+</body>
+</html>
